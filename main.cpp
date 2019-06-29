@@ -9,6 +9,6 @@ int main() {
     Grafo grafo;
     Leitura leitura;
     leitura.iniciaGrafo(&grafo);
-    grafo.imprimir();
+    grafo.guloso(&grafo,0, "guloso");
     return 0;
 }

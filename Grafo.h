@@ -13,7 +13,7 @@ public:
     ~Grafo();
 
     int getTamanho() { return tamanho;}
-    void insereNo(int id);
+    void insereNo(int id, int peso);
     void removeNo(int id);
     void insereArestaDir(int idPrimeiroNo, int idSegundoNo, int peso);
     void insereAresta(int idPrimeiroNo, int idSegundoNo, int peso);
@@ -22,8 +22,8 @@ public:
     void imprimir();
     void imprimirArestas();
     int getGrauNo(int id);
-    void guloso(Grafo *grafo);
-    void* ordenaVetor(No **listaParaOrdenar);
+    void guloso(Grafo *grafo, double alfa,string tipo);
+
 
 private:
     No *primeiro;
@@ -32,6 +32,9 @@ private:
 
     No* busca(int id);
     bool existe(int id);
+    int atualizaLista(No **pNo, int remocao, int tamanhoLista);
+    void ordenaVetor(No **listaParaOrdenar, int tamanhoDaLista);
+
 };
 
 

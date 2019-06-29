@@ -18,21 +18,24 @@ public:
     int getId() { return id; }
     int getGrau() { return grau; }
     No* getProx() { return prox; }
+    void setPeso(int peso){this->peso = peso;}
     void* setProx(No *no) { prox = no; }
-    void insereAresta(int idAdjacente, int peso) { lista->insereAresta(idAdjacente, peso); grau++; }
-    void removAresta(int idIncidente) { lista->removeAresta(idIncidente); grau--; prox->somaPesoTotalDasArestasNo();}
+    void insereAresta(int idAdjacente) { lista->insereAresta(idAdjacente); grau++; }
+    void removAresta(int idIncidente) { lista->removeAresta(idIncidente); grau--;}
     void setId(int novoId) { id = novoId; }
     void imprimirArestas() { cout << "No " << id << " possui aresta com : ";  lista->imprimir(); }
     void zerarGrau() { grau = 0; }
     void diminuiu1Grau() { grau--; }
-    void somaPesoTotalDasArestasNo() { pesoPonderado = grau/lista->getPesos(); }
-    double getPesoPonderado() {return pesoPonderado;}
+    int getPeso() { return peso; }
+    double getPesoPonderado() {return pesoPonderado = peso/grau;}
+    ListaAresta *getLista() {return lista;}
 
 
 private:
     int id;
     int grau;
     double pesoPonderado;
+    int peso;
     No *prox;
     ListaAresta *lista;
 };

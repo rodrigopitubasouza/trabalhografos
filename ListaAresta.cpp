@@ -8,18 +8,15 @@
 
 using namespace std;
 
-ListaAresta::ListaAresta()
-{
+ListaAresta::ListaAresta() {
     primeiro = nullptr;
     ultimo = nullptr;
     quantidadeAresta = 0;
 }
 
-ListaAresta::~ListaAresta()
-{
+ListaAresta::~ListaAresta() {
     Aresta *arestaParaRemover = primeiro;
-    while(arestaParaRemover != nullptr)
-    {
+    while (arestaParaRemover != nullptr) {
         Aresta *proximaAresta = arestaParaRemover->getProx();
         delete arestaParaRemover;
         arestaParaRemover = proximaAresta;
@@ -29,13 +26,12 @@ ListaAresta::~ListaAresta()
 /**
 *Insere aresta deste no para o no indicado no parametro
 *****************************************************************/
-void ListaAresta::insereAresta(int id, int peso){
+void ListaAresta::insereAresta(int id) {
     Aresta *arestaParaAdicionar = new Aresta();
     arestaParaAdicionar->setIdAdjacente(id);
-    arestaParaAdicionar->setPeso(peso);
     arestaParaAdicionar->setProx(nullptr);
     quantidadeAresta++;
-    if(primeiro == nullptr){
+    if (primeiro == nullptr) {
         primeiro = arestaParaAdicionar;
         ultimo = arestaParaAdicionar;
     } else {
@@ -43,35 +39,39 @@ void ListaAresta::insereAresta(int id, int peso){
         ultimo = arestaParaAdicionar;
     }
 }
+
 /**
 * Remove a aresta deste no para o no indicado no parâmetro
 *****************************************************************/
-void ListaAresta::removeAresta(int idIncidente){
+void ListaAresta::removeAresta(int idIncidente) {
     Aresta *aresta = primeiro;
     Aresta *arestaAnterior;
-    if(aresta != nullptr){
-        while(aresta != nullptr){
-            if(aresta->getIdAdjacente() == idIncidente){
-                if(aresta == primeiro){
-                    if(primeiro == ultimo){
+    Aresta *proximaAresta;
+    if (aresta != nullptr) {
+        while (aresta != nullptr) {
+            proximaAresta = aresta->getProx();
+            if (aresta->getIdAdjacente() == idIncidente) {
+                if (aresta == primeiro) {
+                    if (primeiro == ultimo) {
                         delete primeiro;
                         primeiro = nullptr;
                         ultimo = nullptr;
                         quantidadeAresta--;
+                        return;
                     } else {
                         primeiro = primeiro->getProx();
-                        delete aresta;
+                        proximaAresta = aresta->getProx();
                         quantidadeAresta--;
                     }
                 } else {
                     arestaAnterior->setProx(aresta->getProx());
-                    if(aresta == ultimo) ultimo = arestaAnterior;
-                    delete aresta;
+                    if (aresta == ultimo) ultimo = arestaAnterior;
+                    proximaAresta = aresta->getProx();
                     quantidadeAresta--;
                 }
             }
             arestaAnterior = aresta;
-            aresta = aresta->getProx();
+            aresta = proximaAresta;
         }
     }
 }
@@ -79,9 +79,9 @@ void ListaAresta::removeAresta(int idIncidente){
 /**
 *Funcao que imprime a lista de aresta do No
 *****************************************************************/
-void ListaAresta::imprimir(){
-    Aresta* aresta = primeiro;
-    while(aresta != nullptr){
+void ListaAresta::imprimir() {
+    Aresta *aresta = primeiro;
+    while (aresta != nullptr) {
         cout << aresta->getIdAdjacente() << "   ";
         aresta = aresta->getProx();
     }
@@ -91,23 +91,13 @@ void ListaAresta::imprimir(){
 /**
 *Funcao privada para buscar uma determinada aresta na lista
 *****************************************************************/
-Aresta* ListaAresta::busca(int arestaDesejada){
+Aresta *ListaAresta::busca(int arestaDesejada) {
     Aresta *aresta = primeiro;
-    while(aresta != nullptr){
-        if(aresta->getIdAdjacente() == arestaDesejada)
+    while (aresta != nullptr) {
+        if (aresta->getIdAdjacente() == arestaDesejada)
             return aresta;
         aresta = aresta->getProx();
     }
     cout << "No nao encontrado. " << endl;
     return aresta;
-}
-
-double ListaAresta::getPesos() {
-    double peso = 0;
-    Aresta* aresta = primeiro;
-    for(int i=0 ; i<quantidadeAresta ; i++){
-        peso += aresta->getPeso();
-        aresta = aresta->getProx();
-    }
-    return peso;
 }
