@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="grafos"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="grafos">
+				<Option output="/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/grafos.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 grafos"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="grafos/fast">
+				<Option output="/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/grafos.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/x86_64-pc-cygwin"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 grafos/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j8 -f &quot;/cygdrive/c/Users/rodri/CLionProjects/grafos/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/Aresta.cpp">
+			<Option target="grafos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/Aresta.h">
+			<Option target="grafos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/Grafo.cpp">
+			<Option target="grafos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/Grafo.h">
+			<Option target="grafos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/Leitura.cpp">
+			<Option target="grafos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/Leitura.h">
+			<Option target="grafos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/ListaAresta.cpp">
+			<Option target="grafos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/ListaAresta.h">
+			<Option target="grafos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/No.cpp">
+			<Option target="grafos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/No.h">
+			<Option target="grafos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/main.cpp">
+			<Option target="grafos"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/rodri/CLionProjects/grafos/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

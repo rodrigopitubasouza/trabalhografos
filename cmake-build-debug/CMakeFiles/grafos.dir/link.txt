@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/grafos.dir/main.cpp.o CMakeFiles/grafos.dir/Aresta.cpp.o CMakeFiles/grafos.dir/Grafo.cpp.o CMakeFiles/grafos.dir/No.cpp.o CMakeFiles/grafos.dir/ListaAresta.cpp.o CMakeFiles/grafos.dir/Leitura.cpp.o  -o grafos.exe -Wl,--out-implib,libgrafos.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
