@@ -28,6 +28,9 @@ public:
     void imprimirArestas();
     int getGrauNo(int id);
     grafoComMelhorSolucao guloso(Grafo *grafo, double alfa);
+    grafoComMelhorSolucao gulosoReativo(Grafo *grafo,int k, int tamAlf);
+    void menorCaminhoDijkstra(int v, int vN);
+    void algFloyd(int a, int b);
 
 
 
@@ -41,6 +44,10 @@ private:
     bool existe(int id);
     int atualizaLista(No **pNo, int remocao, int tamanhoLista);
     void ordenaVetor(No **listaParaOrdenar, int tamanhoDaLista);
+    float Qi(float tamMelhorS, float somatorio, float qtd);
+    float SomatorioQ(float *q, int tam);
+    int RandomPseudoAleatorio(float * prob, int tamAlf);
+    bool verificaVisit(bool vet[], int n);
 
 };
 

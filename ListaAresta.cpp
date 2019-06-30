@@ -26,10 +26,11 @@ ListaAresta::~ListaAresta() {
 /**
 *Insere aresta deste no para o no indicado no parametro
 *****************************************************************/
-void ListaAresta::insereAresta(int id) {
+void ListaAresta::insereAresta(int id, double peso) {
     Aresta *arestaParaAdicionar = new Aresta();
     arestaParaAdicionar->setIdAdjacente(id);
     arestaParaAdicionar->setProx(nullptr);
+    arestaParaAdicionar->setPeso(peso);
     quantidadeAresta++;
     if (primeiro == nullptr) {
         primeiro = arestaParaAdicionar;
@@ -100,4 +101,14 @@ Aresta *ListaAresta::busca(int arestaDesejada) {
     }
     cout << "No nao encontrado. " << endl;
     return aresta;
+}
+
+int ListaAresta::getPesoOuInfinito(int i) {
+    Aresta *p = primeiro;
+    while(p != nullptr){
+        if(p->getIdAdjacente() == i)
+            return p->getPeso();
+        p = p->getProx();
+    }
+    return 	2147483645;
 }

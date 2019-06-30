@@ -12,15 +12,17 @@ using namespace std;
 class No
 {
 public:
-    No() {lista = new ListaAresta; grau = 0; }
+    No() {lista = new ListaAresta; grau = 0; grauOriginalPorNaoConseguirCopiarGrafo = 0; }
     ~No() {delete lista;}
 
     int getId() { return id; }
     int getGrau() { return grau; }
+    int getGrauOriginal() { return grauOriginalPorNaoConseguirCopiarGrafo; }
+    int setGrau(int grau) { this->grau = grau;}
     No* getProx() { return prox; }
     void setPeso(int peso){this->peso = peso;}
     void* setProx(No *no) { prox = no; }
-    void insereAresta(int idAdjacente) { lista->insereAresta(idAdjacente); grau++; }
+    void insereAresta(int idAdjacente, double peso) { lista->insereAresta(idAdjacente,peso); grau++;grauOriginalPorNaoConseguirCopiarGrafo++; }
     void removAresta(int idIncidente) { lista->removeAresta(idIncidente); grau--;}
     void setId(int novoId) { id = novoId; }
     void imprimirArestas() { cout << "No " << id << " possui aresta com : ";  lista->imprimir(); }
@@ -38,6 +40,7 @@ private:
     int peso;
     No *prox;
     ListaAresta *lista;
+    int grauOriginalPorNaoConseguirCopiarGrafo;
 };
 
 

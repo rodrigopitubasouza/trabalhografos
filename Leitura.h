@@ -14,7 +14,7 @@ private:
     ifstream leitor;
 
 public:
-    void iniciaGrafo(Grafo *grafo);
+    void iniciaGrafo(Grafo *grafo, string caminhoDoArquivoEntrada);
 };
 
 

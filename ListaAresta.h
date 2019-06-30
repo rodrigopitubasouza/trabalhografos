@@ -12,16 +12,18 @@ class ListaAresta
     public:
         ListaAresta();
         ~ListaAresta();
-        void insereAresta(int id);
+        void insereAresta(int id, double peso);
         void removeAresta(int idIncidente);
         void imprimir();
         int getQuantidadeArestas() {return quantidadeAresta;}
         Aresta *getPrimeiro(){ return  primeiro;}
+        int getPesoOuInfinito(int i);
 
     private:
         Aresta *primeiro;
         Aresta *ultimo;
         int quantidadeAresta;
+
 
         Aresta* busca(int arestaDesejada);
 };

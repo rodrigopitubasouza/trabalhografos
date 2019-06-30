@@ -14,8 +14,8 @@ using namespace std;
  *Le o arquivo de entrada e inicia o Grafo com seus nos e respectivas
  * arestas.
  *****************************************************************/
-void Leitura::iniciaGrafo(Grafo *grafo) {
-    leitor.open("../Arquivo/grafo.txt");
+void Leitura::iniciaGrafo(Grafo *grafo, string caminhoDoArquivoEntrada) {
+    leitor.open(caminhoDoArquivoEntrada);
     if(!leitor.is_open())
         cout << "Erro ao abrir o Arquivo." << endl;
     else{
