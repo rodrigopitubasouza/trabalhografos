@@ -27,4 +27,5 @@ void Leitura::iniciaGrafo(Grafo *grafo) {
             grafo->insereAresta(idPrimeiroNo, idSegundoNo, peso);
         }
     }
+    leitor.close();
 }

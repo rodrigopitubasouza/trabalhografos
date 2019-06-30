@@ -203,29 +203,33 @@ bool Grafo::existe(int id) {
  * @param grafo
  * @param alfa quando o alfa = 0 observa-se que estamos falando do algoritmo guloso
  */
-void Grafo::guloso(Grafo *grafo, double alfa, string tipo) {
+grafoComMelhorSolucao Grafo::guloso(Grafo *grafo, double alfa) {
     No **listaParaOrdernar = new No *[grafo->getTamanho()];
     int tamanhoDaLista = grafo->getTamanho();
     No *prox = grafo->primeiro;
     int pos;
     int remocao;
+    int contadorElementosSolucao;
+    grafoComMelhorSolucao grafoDeRetorno;
+    int *vetorDaSolucao = new int [grafo->getTamanho()];
     for (int i = 0; i < grafo->getTamanho(); ++i) {
         listaParaOrdernar[i] = prox;
         prox = prox->getProx();
     }
-    ofstream f;
-    f.open("../Saidas.txt", ofstream::ios_base::app);
-    f << endl << "Solução algoritmo " << tipo << " : " << endl;
-
     ordenaVetor(listaParaOrdernar, tamanhoDaLista);
+    contadorElementosSolucao = 0;
+    remocao = 0;
     while (tamanhoDaLista != 0) {
         pos = ceil(alfa * tamanhoDaLista);
         remocao = pos != 0 ? rand() % pos : 0;
-        f << listaParaOrdernar[remocao]->getId() << " " << endl;
+        vetorDaSolucao[contadorElementosSolucao] = listaParaOrdernar[remocao]->getId();
+        contadorElementosSolucao++;
         tamanhoDaLista = atualizaLista(listaParaOrdernar, remocao, tamanhoDaLista);
         ordenaVetor(listaParaOrdernar, tamanhoDaLista);
     }
-    f.close();
+    grafoDeRetorno.tam = contadorElementosSolucao;
+    grafoDeRetorno.vet = vetorDaSolucao;
+    return grafoDeRetorno;
 }
 
 void Grafo::ordenaVetor(No **listaParaOrdenar, int tamanhoDaLista) {

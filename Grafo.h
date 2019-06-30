@@ -6,13 +6,18 @@
 #define GRAFOS_GRAFO_H
 #include "No.h"
 
+typedef struct grafoComMelhorSolucao {
+    int tam;
+    int *vet;
+} grafoComMelhorSolucao;
+
 class Grafo
 {
 public:
     Grafo();
     ~Grafo();
 
-    int getTamanho() { return tamanho;}
+    int getTamanho() const { return tamanho;}
     void insereNo(int id, int peso);
     void removeNo(int id);
     void insereArestaDir(int idPrimeiroNo, int idSegundoNo, int peso);
@@ -22,7 +27,9 @@ public:
     void imprimir();
     void imprimirArestas();
     int getGrauNo(int id);
-    void guloso(Grafo *grafo, double alfa,string tipo);
+    grafoComMelhorSolucao guloso(Grafo *grafo, double alfa);
+
+
 
 
 private:
