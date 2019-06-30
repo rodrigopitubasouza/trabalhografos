@@ -23,6 +23,8 @@ fstream
 -
 unistd.h
 -
+random
+-
 
 /cygdrive/c/Users/rodri/CLionProjects/grafos/Grafo.h
 No.h

@@ -9,6 +9,7 @@
 #include <limits.h>
 #include <fstream>
 #include <unistd.h>
+#include <random>
 
 using namespace std;
 
@@ -204,6 +205,7 @@ bool Grafo::existe(int id) {
  * @param alfa quando o alfa = 0 observa-se que estamos falando do algoritmo guloso
  */
 grafoComMelhorSolucao Grafo::guloso(Grafo *grafo, double alfa) {
+
     No **listaParaOrdernar = new No *[grafo->getTamanho()];
     int tamanhoDaLista = grafo->getTamanho();
     No *prox = grafo->primeiro;
@@ -218,10 +220,15 @@ grafoComMelhorSolucao Grafo::guloso(Grafo *grafo, double alfa) {
     }
     ordenaVetor(listaParaOrdernar, tamanhoDaLista);
     contadorElementosSolucao = 0;
-    remocao = 0;
+
     while (tamanhoDaLista != 0) {
-        pos = ceil(alfa * tamanhoDaLista);
-        remocao = pos != 0 ? rand() % pos : 0;
+        pos = ceil(alfa * (tamanhoDaLista-1));
+        // Utilização de engine Mersenne twister para fazer o random.
+        std::random_device rd{};
+        std::mt19937 engine{rd()};
+        std::uniform_int_distribution<int> dist(1,pos);
+        remocao = pos != 0 ? dist(engine): 0;
+
         vetorDaSolucao[contadorElementosSolucao] = listaParaOrdernar[remocao]->getId();
         contadorElementosSolucao++;
         tamanhoDaLista = atualizaLista(listaParaOrdernar, remocao, tamanhoDaLista);
