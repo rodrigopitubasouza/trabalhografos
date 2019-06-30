@@ -47,7 +47,7 @@ private:
     float Qi(float tamMelhorS, float somatorio, float qtd);
     float SomatorioQ(float *q, int tam);
     int RandomPseudoAleatorio(float * prob, int tamAlf);
-    bool verificaVisit(bool vet[], int n);
+    bool verificaVisitados(bool vet[], int tamanho);
 
 };
 

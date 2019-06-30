@@ -8,27 +8,15 @@
 
 /cygdrive/c/Users/rodri/CLionProjects/grafos/Aresta.h
 
-/cygdrive/c/Users/rodri/CLionProjects/grafos/Grafo.cpp
-Grafo.h
-/cygdrive/c/Users/rodri/CLionProjects/grafos/Grafo.h
-iostream
--
-cstdlib
--
-math.h
--
-limits.h
--
-fstream
--
-unistd.h
--
-random
--
-
 /cygdrive/c/Users/rodri/CLionProjects/grafos/Grafo.h
 No.h
 /cygdrive/c/Users/rodri/CLionProjects/grafos/No.h
+
+/cygdrive/c/Users/rodri/CLionProjects/grafos/Leitura.h
+fstream
+-
+Grafo.h
+/cygdrive/c/Users/rodri/CLionProjects/grafos/Grafo.h
 
 /cygdrive/c/Users/rodri/CLionProjects/grafos/ListaAresta.h
 Aresta.h
@@ -38,5 +26,15 @@ Aresta.h
 ListaAresta.h
 /cygdrive/c/Users/rodri/CLionProjects/grafos/ListaAresta.h
 iostream
+-
+
+/cygdrive/c/Users/rodri/CLionProjects/grafos/main.cpp
+iostream
+-
+Grafo.h
+/cygdrive/c/Users/rodri/CLionProjects/grafos/Grafo.h
+Leitura.h
+/cygdrive/c/Users/rodri/CLionProjects/grafos/Leitura.h
+stdlib.h
 -
 

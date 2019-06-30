@@ -7,9 +7,9 @@ using namespace std;
 
 //int main(int argc, char *argv[ ]) {
 int main() {
-        /*
-        srand(static_cast<unsigned int>(time(nullptr)));
 
+        srand(static_cast<unsigned int>(time(nullptr)));
+        /*
         if(argc == 1) {
         cout << "Faltam Argumentos" << endl;
         exit(1);
@@ -40,13 +40,17 @@ int main() {
         else if(flag == 2){
         cout << "Digite o Alfa (Entre 0 e 1) : ";
         cin >> alfa;
-        grafoComMelhorSolucao aux = grafo.guloso(&grafo,alfa);
-        f.open("../Saidas.txt", ofstream::ios_base::app);
-        f << endl << "Solução algoritmo guloso randomizado com alfa " << alfa << " e a solução tem " << grafoMelhorSolucao.tam << " nós:" << endl;
-        for (int i = 0; i < grafoMelhorSolucao.tam; ++i) {
-        f << endl << grafoMelhorSolucao.vet[i] << " " << endl;
+        if (alfa > 1 || alfa < 0){
+            cout << "Digite o Alfa (Entre 0 e 1) : ";
+         }else{
+            grafoComMelhorSolucao aux = grafo.guloso(&grafo,alfa);
+            f.open("../Saidas.txt", ofstream::ios_base::app);
+            f << endl << "Solução algoritmo guloso randomizado com alfa " << alfa << " e a solução tem " << grafoMelhorSolucao.tam << " nós:" << endl;
+            for (int i = 0; i < grafoMelhorSolucao.tam; ++i) {
+            f << endl << grafoMelhorSolucao.vet[i] << " " << endl;
         }
         f.close();
+            }
         }
         else if(flag == 3){
         espacamento = 10;

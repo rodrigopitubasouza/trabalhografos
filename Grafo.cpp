@@ -244,6 +244,15 @@ grafoComMelhorSolucao Grafo::guloso(Grafo *grafo, double alfa) {
     return grafoDeRetorno;
 }
 
+
+/**
+ * Funcao que ordena o vetor de nos
+ * para deixar o No na sua devida posição
+ * definida pelo peso/grau.
+ * @param listaParaOrdenar Ponteiro para o vetor de Nos
+ * @param tamanhoDaLista tamanho que representa a quantidade de nos no vetor
+ * @return Função sem retorno
+ */
 void Grafo::ordenaVetor(No **listaParaOrdenar, int tamanhoDaLista) {
     int i, j;
     double value;
@@ -268,6 +277,14 @@ void Grafo::ordenaVetor(No **listaParaOrdenar, int tamanhoDaLista) {
     }
 }
 
+/**
+ * Funçao que diminui o grau dos nos adjacentes ao no
+ * que vai ser removido, remove o nó e remove todos os nós que ficaram com grau 0
+ * @param pNo Ponteiro para o vetor
+ * @param remocao Posicao do nó que vai ser removido
+ * @param tamanhoLista Quantidade de elementos no vetor de nos
+ * @return retorna o tamanho da lista apos as remocoes
+ */
 int Grafo::atualizaLista(No **pNo, int remocao, int tamanhoLista) {
     int idNoRemovido = pNo[remocao]->getId();
     Aresta *listaDeArestasAux = pNo[remocao]->getLista()->getPrimeiro();
@@ -303,6 +320,7 @@ int Grafo::atualizaLista(No **pNo, int remocao, int tamanhoLista) {
  * e faz outro vetor de probabilidades, atualizando as probabilidades de acordo com as melhores
  * solucoes geradas por cada alfa, fazendo com que os melhores alfas tenham maiores probabilidades
  * gerando solucoes melhores.
+ * @param grafo Ponteiro para o grafo que vai ser feito o guloso.
  * @param k Int de quantas iteracoes serao feitas
  * @param tamAlf Tamanho do vetor de alfas
  * @return Melhor Solucao Gerada
@@ -447,14 +465,16 @@ void Grafo::algFloyd(int a, int b) {
 
 /**
 * Algoritmo de Dijkstra para encontrar menor caminho entre dois vertices
-* @param v int com o no inicial
-* @param vN int com o no destino
-* @return dist[vN] com a distancia entre os dois nos passados por parâmetro
+* escreve no arquivo de Saida o dist[destino] com a distancia entre os dois nos passados por parâmetro
+* e no console
+* @param inicio id do no de inicio.
+* @param destino id do no de destino
+* @return função sem retorno
 */
-void Grafo::menorCaminhoDijkstra(int v, int vN)
+void Grafo::menorCaminhoDijkstra(int inicio, int destino)
 {
-    No* p = busca(v);
-    No* q = busca(vN);
+    No* p = busca(inicio);
+    No* q = busca(destino);
     ofstream f;
     f.open("../Saidas.txt", ofstream::ios_base::app);
     if(p != nullptr && q != nullptr){
@@ -469,7 +489,7 @@ void Grafo::menorCaminhoDijkstra(int v, int vN)
         }
         dist[p->getId()] = 0;
 
-        while(!verificaVisit(visit, tamanho)){
+        while(!verificaVisitados(visit, tamanho)){
             if(!visit[p->getId()]){
                 visit[p->getId()] = true;
                 Aresta* a = p->getLista()->getPrimeiro();
@@ -488,12 +508,9 @@ void Grafo::menorCaminhoDijkstra(int v, int vN)
                     if(!visit[i])
                         break;
                     if(i == tamanho-1){
-                        //for(int j = 0; j < n; j++)
-                        //cout << dist[j] << "\t";
                         cout << endl;
-                        cout << "A distância entre " << v << " e " << vN << " e: " << dist[vN] << endl;
-                        f << endl << "Menor Caminho(Dijkstra) entre " << v << " e " << vN << " : " << dist[vN] << endl;
-                        //return dist[vN];
+                        cout << "A distância entre " << inicio << " e " << destino << " e: " << dist[destino] << endl;
+                        f << endl << "Menor Caminho(Dijkstra) entre " << inicio << " e " << destino << " : " << dist[destino] << endl;
                     }
                 }
                 menor = i;
@@ -504,28 +521,26 @@ void Grafo::menorCaminhoDijkstra(int v, int vN)
                 p = busca(menor);
             }
         }
-        if(dist[vN] == INT_MAX/2) {
+        if(dist[destino] == INT_MAX/2) {
             cout << endl << "Nao existe caminho entre os vertices." << endl;
             f << endl << "Nao existe caminho entre os vertices. " << endl;
-            //return dist[vN];
         }
     }
     else{
-        cout << "Vertice " << v << " ou "<< vN << " nao encontrados no grafo! (ERRO)" << endl;
-        f << endl << "Vertice " << v << " ou "<< vN << " nao encontrados no grafo! (ERRO)-Algoritmo Dijkstra" << endl;
-        //return -1;
+        cout << "Vertice " << inicio << " ou "<< destino << " nao encontrados no grafo! (ERRO)" << endl;
+        f << endl << "Vertice " << inicio << " ou "<< destino << " nao encontrados no grafo! (ERRO)-Algoritmo Dijkstra" << endl;
     }
 }
 
 /**
 * Função que verifica se o vetor é false em todas as posições
 * @param vet bool com os indices dos nos do grafo
-* @param n int com o tamanho do vetor
+* @param tamanho int com o tamanho do vetor
 * @return false se todas as posicoes sao false ou true se encontrado ao menos um true
 */
-bool Grafo::verificaVisit(bool vet[], int n) // funcao que verifica se todos os indicies do vetor foram visitados
+bool Grafo::verificaVisitados(bool vet[], int tamanho) // funcao que verifica se todos os indicies do vetor foram visitados
 {
-    for(int i = 0; i < n; i++)
+    for(int i = 0; i < tamanho; i++)
         if(!vet[i])
             return false;
     return true;
