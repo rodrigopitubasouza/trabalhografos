@@ -112,3 +112,81 @@ int ListaAresta::getPesoOuInfinito(int i) {
     }
     return 	2147483645;
 }
+
+void ListaAresta::insereOrdenado(Aresta* a, int v)
+{
+    Aresta* p = new Aresta();
+    p->setPeso(a->getPeso());
+    p->setProx(a->getProx());
+    p->setIdAdjacente(a->getIdAdjacente());
+    p->setPai(v);
+    if(quantidadeAresta == 0){
+        primeiro = p;
+        ultimo = p;
+        p->setProx(NULL);
+        quantidadeAresta++;
+    }
+    else{
+        if(p->getPeso() <= primeiro->getPeso()){
+            Aresta* q = primeiro;
+            p->setProx(q);
+            primeiro = p;
+            quantidadeAresta++;
+        }
+        else if(p->getPeso() > ultimo->getPeso()){
+            ultimo->setProx(p);
+            p->setProx(NULL);
+            ultimo = p;
+            quantidadeAresta++;
+        }
+        else{
+            Aresta* q = primeiro;
+            while(q->getProx()->getPeso() < p->getPeso())
+                q = q->getProx();
+            Aresta* c = q->getProx();
+            q->setProx(p);
+            p->setProx(c);
+            quantidadeAresta++;
+        }
+    }
+}
+
+void ListaAresta::removeK(Aresta* a)
+{
+    if(quantidadeAresta == 0)
+        cout << "Lista Vazia!!!" << endl;
+    else{
+        Aresta* p = primeiro;
+        if(quantidadeAresta == 1 && p == a){
+            delete p;
+            primeiro = NULL;
+            ultimo = NULL;
+            quantidadeAresta--;
+        }
+        else if(p == a){
+            primeiro = p->getProx();
+            delete p;
+            quantidadeAresta--;
+        }
+        else{
+            while(p != NULL){
+                if(p->getProx() != NULL && p->getProx() == a){
+                    if(p->getProx() == ultimo){
+                        Aresta* q = p->getProx();
+                        delete q;
+                        p->setProx(NULL);
+                        ultimo = p;
+                        quantidadeAresta--;
+                    }
+                    else{
+                        Aresta* q = p->getProx();
+                        p->setProx(q->getProx());
+                        delete q;
+                        quantidadeAresta--;
+                    }
+                }
+                p = p->getProx();
+            }
+        }
+    }
+}

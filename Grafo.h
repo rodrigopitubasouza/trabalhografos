@@ -33,6 +33,7 @@ public:
     void algFloyd(int a, int b);
     int algDijkstra(int origem, int destino);
     int Prim();
+    void kruskal();
 
 
 

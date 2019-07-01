@@ -599,6 +599,74 @@ int Grafo::Prim() {
 
 }
 
+/**
+ * Faz uma arvore geradora minima ou se o grafo for conexo ou
+ * faz florestas se o grafo for desconexo
+ */
+void Grafo::kruskal()
+{
+    if(tamanho != 0){
+        No* p = primeiro;
+        int vetArv[tamanho];
+        bool visit[tamanho];
+        bool condicao[tamanho];
+        Aresta* a = p->getLista()->getPrimeiro();
+        ListaAresta* lista = new ListaAresta();
+
+        for(int i = 0; i < tamanho; i++){
+            vetArv[i] = p->getId();
+            visit[i] = false;
+            condicao[i] = false;
+            p = p->getProx();
+        }
+        p = primeiro;
+
+        while(p != NULL){
+            while(a != NULL){
+                if(!visit[a->getIdAdjacente()])
+                    lista->insereOrdenado(a, p->getId());
+                a = a->getProx();
+            }
+            visit[p->getId()] = true;
+            p = p->getProx();
+            if(p != NULL)
+                a = p->getLista()->getPrimeiro();
+        }
+
+
+
+//        lista->imprimeAresta();
+        p = primeiro;
+        a = lista->getPrimeiro();
+        int cont = 0;
+        cout << "Arvore geradora: " << endl;
+        while(lista->getQuantidadeArestas() != 0 && cont != tamanho-1){
+            if(condicao[lista->getPrimeiro()->getPai()] && condicao[lista->getPrimeiro()->getIdAdjacente()])
+                lista->removeK(lista->getPrimeiro());
+            else{
+                if(lista->getPrimeiro()->getPai() > lista->getPrimeiro()->getIdAdjacente()){
+                    cout << "Aresta de " << lista->getPrimeiro()->getPai() << " para " << lista->getPrimeiro()->getIdAdjacente() << " peso: " << lista->getPrimeiro()->getPeso() << endl;
+                    condicao[lista->getPrimeiro()->getPai()] = true;
+                    lista->removeK(lista->getPrimeiro());
+                    cont++;
+                }
+                else{
+                    cout << "Aresta de " << lista->getPrimeiro()->getPai() << " para " << lista->getPrimeiro()->getIdAdjacente() << " peso: " << lista->getPrimeiro()->getPeso() << endl;
+                    condicao[lista->getPrimeiro()->getIdAdjacente()] = true;
+                    lista->removeK(lista->getPrimeiro());
+                    cont++;
+                }
+            }
+
+        }
+
+        cout << "Numero de aresta na solucao: " << cont << endl;
+        cout << "Numero de vertices: " << cont+1 << endl;
+
+
+        delete lista;
+    }
+}
 
 
 

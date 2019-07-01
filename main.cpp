@@ -87,6 +87,9 @@ int main() {
             cout << endl << "O custo da árvore é : " << dist << endl;
             f.close();
         }
+        else if(flag == 7){
+            grafo.kruskal();
+        }
 
 
         cout << endl;
@@ -97,6 +100,7 @@ int main() {
         cout << " 4 - Algoritmo de Floyd" << endl;
         cout << " 5 - Algoritmo de Dijkstra" << endl;
         cout << " 6 - Algoritmo de Prim" << endl;
+        cout << " 7 - Algoritmo de Kruskal" << endl;
         cout << " 0 - Sair" << endl;
         cin >> flag;
     }

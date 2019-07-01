@@ -17,11 +17,15 @@ class Aresta {
         void setPeso(double peso) { this->peso = peso; }
         int getIdAdjacente()       { return idAdjacente; }
         int getPeso()       { return peso; }
+        void setPai(int v) { pai = v; };
+        int getPai() { return pai; };
+
 
     private:
         int idAdjacente;
         double peso;
         Aresta *prox;
+        int pai;
 };
 
 

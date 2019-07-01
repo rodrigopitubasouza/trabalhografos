@@ -18,6 +18,8 @@ class ListaAresta
         int getQuantidadeArestas() {return quantidadeAresta;}
         Aresta *getPrimeiro(){ return  primeiro;}
         int getPesoOuInfinito(int i);
+        void insereOrdenado(Aresta* a, int v);
+        void removeK(Aresta* a);
 
     private:
         Aresta *primeiro;
