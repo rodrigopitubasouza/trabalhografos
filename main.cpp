@@ -79,30 +79,33 @@ int main() {
             f << endl << "Menor Caminho(Dijkstra) entre " << a << " e " << b << " : " << dist << endl;
             cout << endl << "Menor Caminho(Dijkstra) entre " << a << " e " << b << " : " << dist << endl;
             f.close();
-        }
-        else if(flag == 6){
+        } else if (flag == 6) {
             int dist = grafo.Prim();
             f.open("../Saidas.txt", ofstream::ios_base::app);
             f << endl << "O custo da árvore é : " << dist << endl;
             cout << endl << "O custo da árvore é : " << dist << endl;
             f.close();
-        }
-        else if(flag == 7){
+        } else if (flag == 7) {
             grafo.kruskal();
+            flag = 98;
         }
 
-
-        cout << endl;
-        cout << "------------------ Selecione uma opcao ------------------" << endl;
-        cout << " 1 - Algoritmo Guloso de Cobertura de Vertice" << endl;
-        cout << " 2 - Algoritmo Guloso Randomizado " << endl;
-        cout << " 3 - Algoritmo Guloso Reativo " << endl;
-        cout << " 4 - Algoritmo de Floyd" << endl;
-        cout << " 5 - Algoritmo de Dijkstra" << endl;
-        cout << " 6 - Algoritmo de Prim" << endl;
-        cout << " 7 - Algoritmo de Kruskal" << endl;
-        cout << " 0 - Sair" << endl;
-        cin >> flag;
+        if (flag != 98) {
+            cout << endl;
+            cout << "------------------ Selecione uma opcao ------------------" << endl;
+            cout << " 1 - Algoritmo Guloso de Cobertura de Vertice" << endl;
+            cout << " 2 - Algoritmo Guloso Randomizado " << endl;
+            cout << " 3 - Algoritmo Guloso Reativo " << endl;
+            cout << " 4 - Algoritmo de Floyd" << endl;
+            cout << " 5 - Algoritmo de Dijkstra" << endl;
+            cout << " 6 - Algoritmo de Prim" << endl;
+            cout << " 7 - Algoritmo de Kruskal" << endl;
+            cout << " 0 - Sair" << endl;
+            cin >> flag;
+        }else {
+            cin >> flag;
+            flag = 0;
+        }
     }
 
     grafoMelhorSolucao = grafo.guloso(&grafo, 0);
