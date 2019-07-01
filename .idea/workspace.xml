@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Grafo.cpp" description="}" line="295" />
+    <bookmark url="file://$PROJECT_DIR$/Grafo.cpp" description="}" line="297" />
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
@@ -16,19 +16,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d4c963ce-8c21-4daf-8b23-4bcaf8f33c8b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Aresta.h" beforeDir="false" afterPath="$PROJECT_DIR$/Aresta.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Arquivo/grafo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Arquivo/grafo.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Grafo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Grafo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Grafo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Grafo.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/No.h" beforeDir="false" afterPath="$PROJECT_DIR$/No.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Saidas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Saidas.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/Grafo.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/Grafo.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/Grafo.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/Leitura.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/Leitura.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/ListaAresta.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/ListaAresta.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/No.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/No.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/grafos.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/grafos.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/grafos.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/grafos.exe.stackdump" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/grafos.exe.stackdump" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafos.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -44,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Grafo.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+            <state relative-caret-position="468">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
             </state>
           </provider>
         </entry>
@@ -60,10 +58,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NoPilha.h">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Grafo.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-773">
-              <caret line="514" column="45" lean-forward="true" selection-start-line="514" selection-start-column="45" selection-end-line="514" selection-end-column="45" />
+            <state relative-caret-position="94">
+              <caret line="230" column="33" lean-forward="true" selection-start-line="230" selection-start-column="33" selection-end-line="230" selection-end-column="33" />
               <folding>
                 <element signature="e#42#60#0" expanded="true" />
               </folding>
@@ -74,7 +77,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Leitura.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="272">
               <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
               <folding>
                 <element signature="e#92#110#0" expanded="true" />
@@ -86,38 +89,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/No.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="80" column="50" selection-start-line="80" selection-start-column="50" selection-end-line="80" selection-end-column="50" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ListaAresta.h">
+        <entry file="file://$PROJECT_DIR$/Arquivo/grafo.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Aresta.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+            <state>
+              <caret column="11" selection-start-column="11" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -125,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Leitura.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+            <state relative-caret-position="187">
+              <caret line="28" selection-start-line="28" selection-end-line="29" />
               <folding>
                 <element signature="e#42#62#0" expanded="true" />
               </folding>
@@ -137,8 +119,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ListaAresta.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
+            <state relative-caret-position="1853">
               <caret line="109" selection-start-line="109" selection-end-line="109" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="149" column="24" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="73" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,6 +157,8 @@
       <find>infinito</find>
       <find>floyd</find>
       <find>pre</find>
+      <find>guloso</find>
+      <find>ter</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -176,9 +172,10 @@
         <option value="$PROJECT_DIR$/Leitura.h" />
         <option value="$PROJECT_DIR$/Leitura.cpp" />
         <option value="$PROJECT_DIR$/ListaAresta.cpp" />
-        <option value="$PROJECT_DIR$/No.h" />
         <option value="$PROJECT_DIR$/Grafo.h" />
         <option value="$PROJECT_DIR$/Aresta.h" />
+        <option value="$PROJECT_DIR$/Arquivo/grafo.txt" />
+        <option value="$PROJECT_DIR$/No.h" />
         <option value="$PROJECT_DIR$/Grafo.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
       </list>
@@ -264,24 +261,25 @@
       <workItem from="1561826932168" duration="30585000" />
       <workItem from="1561859656921" duration="3776000" />
       <workItem from="1561916536790" duration="16314000" />
-      <workItem from="1561945376215" duration="9012000" />
+      <workItem from="1561945376215" duration="9703000" />
+      <workItem from="1562019554135" duration="4573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80683000" />
+    <option name="totallyTimeSpent" value="85947000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.252349" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2557047" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3297546" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.398017" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.398017" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -306,8 +304,13 @@
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <condition expression="todosOsNos-&gt;getId() == 8540" language="ObjectiveC" />
           <url>file://$PROJECT_DIR$/Grafo.cpp</url>
-          <line>503</line>
+          <line>531</line>
           <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>150</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -331,6 +334,11 @@
       </expression>
     </expressions>
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>listaParaOrdenar[j]-&gt;getPesoPonderado()</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>idDoNo[8545]</expression-string>
         <language-id>ObjectiveC</language-id>
@@ -371,11 +379,6 @@
         <language-id>ObjectiveC</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>idDoNo[8540]</expression-string>
-        <language-id>ObjectiveC</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
@@ -390,9 +393,6 @@
           <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Arquivo/grafo.txt">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/Downloads/Quick.h">
       <provider selected="true" editor-type-id="text-editor">
@@ -452,20 +452,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ListaAresta.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Aresta.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ListaAresta.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1853">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Grafo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Leitura.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
+          <folding>
+            <element signature="e#92#110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Leitura.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        <state relative-caret-position="187">
+          <caret line="28" selection-start-line="28" selection-end-line="29" />
           <folding>
             <element signature="e#42#62#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Aresta.h">
+    <entry file="file://$PROJECT_DIR$/Arquivo/grafo.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -476,48 +514,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Leitura.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
-          <folding>
-            <element signature="e#92#110#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ListaAresta.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ListaAresta.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Grafo.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/NoPilha.h">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/No.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="153">
+          <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Grafo.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-773">
-          <caret line="514" column="45" lean-forward="true" selection-start-line="514" selection-start-column="45" selection-end-line="514" selection-end-column="45" />
+        <state relative-caret-position="94">
+          <caret line="230" column="33" lean-forward="true" selection-start-line="230" selection-start-column="33" selection-end-line="230" selection-end-column="33" />
           <folding>
             <element signature="e#42#60#0" expanded="true" />
           </folding>
@@ -526,8 +536,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="80" column="50" selection-start-line="80" selection-start-column="50" selection-end-line="80" selection-end-column="50" />
+        <state relative-caret-position="272">
+          <caret line="149" column="24" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="73" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

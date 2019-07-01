@@ -111,13 +111,13 @@ No *Grafo::busca(int i) {
  * *********************************************************/
 void Grafo::insereAresta(int idPrimeiroNo, int idSegundoNo) {
     if (!existe(idPrimeiroNo))
-        insereNo(idPrimeiroNo, ceil((idPrimeiroNo % 200) + 1));
+        insereNo(idPrimeiroNo, (idPrimeiroNo % 200) + 1);
     if (!existe(idSegundoNo))
-        insereNo(idSegundoNo, ceil((idSegundoNo % 200) + 1));
+        insereNo(idSegundoNo, (idSegundoNo % 200) + 1);
     No *primeiroNo = busca(idPrimeiroNo);
     No *segundoNo = busca(idSegundoNo);
-    primeiroNo->insereAresta(idSegundoNo, ceil((idPrimeiroNo % 200) + 1));
-    segundoNo->insereAresta(idPrimeiroNo, ceil((idPrimeiroNo % 200) + 1));
+    primeiroNo->insereAresta(idSegundoNo, (idPrimeiroNo % 200) + 1);
+    segundoNo->insereAresta(idPrimeiroNo, (idPrimeiroNo % 200) + 1);
 }
 
 /**
@@ -270,7 +270,7 @@ void Grafo::ordenaVetor(No **listaParaOrdenar, int tamanhoDaLista) {
             p = listaParaOrdenar[i];
             j = i - gap;
 
-            while (j >= 0 && value < listaParaOrdenar[j]->getPesoPonderado()) {
+            while (j >= 0 && value > listaParaOrdenar[j]->getPesoPonderado()) {
                 listaParaOrdenar[j + gap] = listaParaOrdenar[j];
                 j -= gap;
             }

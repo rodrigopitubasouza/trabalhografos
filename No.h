@@ -29,7 +29,7 @@ public:
     void zerarGrau() { grau = 0; }
     void diminuiu1Grau() { grau--; }
     int getPeso() { return peso; }
-    double getPesoPonderado() {return pesoPonderado = peso/grau;}
+    double getPesoPonderado() {return pesoPonderado = (double)grau/(double)peso;}
     ListaAresta *getLista() {return lista;}
     int getPesoDaAresta(int i) { return lista->getPesoOuInfinito(i);}
 

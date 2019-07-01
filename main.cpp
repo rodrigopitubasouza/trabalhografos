@@ -2,6 +2,9 @@
 #include "Grafo.h"
 #include "Leitura.h"
 #include <stdlib.h>
+#include <chrono>
+#include <time.h>
+
 
 using namespace std;
 
@@ -20,13 +23,13 @@ int main() {
     Leitura leitura;
     ofstream f;
     double alfa;
-    int espacamento;
+    int espacamento, iteracoes;
     grafoComMelhorSolucao grafoMelhorSolucao;
 
     //leitura.iniciaGrafo(&grafo, argv[1]);
-    leitura.iniciaGrafo(&grafo, "../Arquivo/johnson32-2-4.mtx");
+    //leitura.iniciaGrafo(&grafo, "../Arquivo/p-hat1500-2.mtx");
 
-    int flag = 99;
+    /*int flag = 99;
     while (flag != 0) {
         if (flag == 1) {
             grafoMelhorSolucao = grafo.guloso(&grafo, 0);
@@ -53,7 +56,8 @@ int main() {
             }
         } else if (flag == 3) {
             espacamento = 10;
-            grafoComMelhorSolucao aux = grafo.gulosoReativo(&grafo, 2000, espacamento);
+            iteracoes = 50;
+            grafoComMelhorSolucao aux = grafo.gulosoReativo(&grafo, iteracoes, espacamento);
             f.open("../Saidas.txt", ofstream::ios_base::app);
             f << endl << "Solução algoritmo guloso Reativo com " << grafoMelhorSolucao.tam << " nós:" << endl;
             for (int i = 0; i < grafoMelhorSolucao.tam; ++i) {
@@ -106,7 +110,13 @@ int main() {
             cin >> flag;
             flag = 0;
         }
-    }
+    }*/
+    leitura.iniciaGrafo(&grafo, "../Arquivo/p-hat1500-2.mtx");
+ //   leitura.iniciaGrafo(&grafo, "../Arquivo/brock800-4.mtx");
+ //   leitura.iniciaGrafo(&grafo, "../Arquivo/brock200-4.mtx");
+
+    // FUNCAO UTILIZADA PARA CONTAGEM DE TEMPO
+    auto inicio = std::chrono::high_resolution_clock::now();
 
     grafoMelhorSolucao = grafo.guloso(&grafo, 0);
     f.open("../Saidas.txt", ofstream::ios_base::app);
@@ -114,8 +124,8 @@ int main() {
     for (int i = 0; i < grafoMelhorSolucao.tam; ++i) {
         f << endl << grafoMelhorSolucao.vet[i] << " " << endl;
     }
-
-    alfa = 0.8;
+/*
+    alfa = 0.2;
     grafoMelhorSolucao = grafo.guloso(&grafo, alfa);
     f << endl << "Solução algoritmo guloso randomizado com alfa " << alfa << " e a solução tem "
       << grafoMelhorSolucao.tam << " nós:" << endl;
@@ -123,14 +133,23 @@ int main() {
         f << endl << grafoMelhorSolucao.vet[i] << " " << endl;
     }
 
+   iteracoes = 10;
     espacamento = 10;
-    grafoMelhorSolucao = grafo.gulosoReativo(&grafo, 2000, espacamento);
+    grafoMelhorSolucao = grafo.gulosoReativo(&grafo, iteracoes, espacamento);
     f << endl << "Solução algoritmo guloso Reativo com " << grafoMelhorSolucao.tam << " nós:" << endl;
     for (int i = 0; i < grafoMelhorSolucao.tam; ++i) {
         f << endl << grafoMelhorSolucao.vet[i] << " " << endl;
     }
-
+*/
     f.close();
+
+
+//ALGORITMO A SER TESTADO
+
+    auto resultado = std::chrono::high_resolution_clock::now() - inicio;
+    long long seconds = std::chrono::duration_cast<std::chrono::seconds>(resultado).count();
+    cout << seconds << "segundos" << endl;
+    cin >> alfa;
     return 0;
 
 }
