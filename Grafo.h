@@ -29,7 +29,7 @@ public:
     int getGrauNo(int id);
     grafoComMelhorSolucao guloso(Grafo *grafo, double alfa);
     grafoComMelhorSolucao gulosoReativo(Grafo *grafo,int k, int tamAlf);
-    void menorCaminhoDijkstra(int v, int vN);
+    void menorCaminhoDijkstra(int inicio, int destino);
     void algFloyd(int a, int b);
 
 

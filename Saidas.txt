@@ -662,3 +662,208 @@ Solução algoritmo guloso Reativo com 11 nós:
 1236 
 
 999 
+
+Solução algoritmo guloso : 
+
+28 
+
+142 
+
+437 
+
+53 
+
+49 
+
+4636 
+
+2278 
+
+4921 
+
+3565 
+
+4868 
+
+694 
+
+3639 
+
+Solução algoritmo guloso randomizado com alfa 0.8 e a solução tem 18 nós:
+
+996 
+
+919 
+
+4921 
+
+694 
+
+2258 
+
+1236 
+
+53 
+
+437 
+
+3639 
+
+142 
+
+2080 
+
+39 
+
+1949 
+
+4868 
+
+1323 
+
+44 
+
+9000 
+
+4636 
+
+Solução algoritmo guloso Reativo com 12 nós:
+
+437 
+
+142 
+
+53 
+
+49 
+
+4636 
+
+4921 
+
+2080 
+
+3565 
+
+996 
+
+671 
+
+1236 
+
+999 
+
+Vertices Invalidos (ERRO)-Algoritmo Floyd
+
+
+Menor Caminho(Floyd) entre 996 e 2080 : 0
+
+Menor Caminho(Floyd) entre 996 e 2080 : 0
+
+Menor Caminho(Floyd) entre 996 e 2080 : 0
+
+Menor Caminho(Floyd) entre 996 e 2080 : 1000
+
+Solução algoritmo guloso : 
+
+28 
+
+142 
+
+437 
+
+53 
+
+49 
+
+4636 
+
+2278 
+
+4921 
+
+3565 
+
+4868 
+
+694 
+
+3639 
+
+Solução algoritmo guloso randomizado com alfa 0.8 e a solução tem 13 nós:
+
+996 
+
+4868 
+
+1949 
+
+1236 
+
+671 
+
+53 
+
+3009 
+
+49 
+
+2080 
+
+4636 
+
+919 
+
+437 
+
+999 
+
+Solução algoritmo guloso Reativo com 12 nós:
+
+437 
+
+49 
+
+53 
+
+142 
+
+4636 
+
+4921 
+
+2080 
+
+919 
+
+996 
+
+694 
+
+1236 
+
+999 
+
+Menor Caminho(Floyd) entre 996 e 2080 : 1000
+
+Menor Caminho(Dijkstra) entre 996 e 2080 : 0
+
+Menor Caminho(Dijkstra) entre 996 e 2080 : 0
+
+Menor Caminho(Dijkstra) entre 996 e 2080 : 0
+
+Vertice 886 ou 2080 nao encontrados no grafo! (ERRO)-Algoritmo Dijkstra
+
+Menor Caminho(Dijkstra) entre 996 e 2080 : 0
+
+Menor Caminho(Dijkstra) entre 996 e 2080 : 0
+
+Menor Caminho(Dijkstra) entre 996 e 2080 : 0
+
+Menor Caminho(Dijkstra) entre 996 e 2080 : 0
+
+Menor Caminho(Dijkstra) entre 4636 e 1949 : 0
+
+Menor Caminho(Dijkstra) entre 4636 e 28 : 25
+
+Menor Caminho(Dijkstra) entre 4636 e 53 : 0

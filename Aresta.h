@@ -14,7 +14,7 @@ class Aresta {
         Aresta* getProx() { return prox; }
         void setProx(Aresta *aresta) { prox = aresta; }
         void setIdAdjacente(int novoId) { idAdjacente = novoId; }
-        void setPeso(double peso) { peso = peso; }
+        void setPeso(double peso) { this->peso = peso; }
         int getIdAdjacente()       { return idAdjacente; }
         int getPeso()       { return peso; }
 

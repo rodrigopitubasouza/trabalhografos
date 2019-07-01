@@ -31,6 +31,8 @@ public:
     int getPeso() { return peso; }
     double getPesoPonderado() {return pesoPonderado = peso/grau;}
     ListaAresta *getLista() {return lista;}
+    int getPesoDaAresta(int i) { return lista->getPesoOuInfinito(i);}
+
 
 
 private:

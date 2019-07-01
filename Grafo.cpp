@@ -432,15 +432,25 @@ int Grafo::RandomPseudoAleatorio(float * prob, int tamAlf)
  */
 void Grafo::algFloyd(int a, int b) {
     int mat[tamanho][tamanho];
-    No *p;
+    int posicaoInicio, posicaoFim;
+    No *noEmI = primeiro;
+    No *noEmJ = primeiro->getProx();
     for(int i=0 ; i<tamanho ; i++){
         for(int j=0 ; j<tamanho ; j++){
             if(i == j){ mat[i][j] = 0; }
             else{
-                p = busca(i);
-                mat[i][j] = p->getLista()->getPesoOuInfinito(j);
+                mat[i][j] = noEmI->getPesoDaAresta(noEmJ->getId());
+                noEmJ = noEmJ->getProx();
             }
         }
+        if(a == noEmI->getId()){
+            posicaoInicio = i;
+        }
+        if(b == noEmI->getId()){
+            posicaoFim = i;
+        }
+        noEmI = noEmI->getProx();
+        noEmJ = primeiro;
     }
     for(int k=0 ; k<tamanho ; k++){
         for(int i=0 ; i<tamanho ; i++){
@@ -452,9 +462,9 @@ void Grafo::algFloyd(int a, int b) {
     }
     ofstream f;
     f.open("../Saidas.txt", ofstream::ios_base::app);
-    if((a >= 0 && a < tamanho) && (b >= 0 && b < tamanho)){
-        f << endl << "Menor Caminho(Floyd) entre " << a << " e " << b << " : " << mat[a][b] << endl;
-        cout << endl << "Menor Caminho(Floyd) entre " << a << " e " << b << " : " << mat[a][b] << endl;
+    if((a >= 0 ) && (b >= 0)){
+        f << endl << "Menor Caminho(Floyd) entre " << a << " e " << b << " : " << mat[posicaoInicio][posicaoFim] << endl;
+        cout << endl << "Menor Caminho(Floyd) entre " << a << " e " << b << " : " << mat[posicaoInicio][posicaoFim] << endl;
     }
     else {
         f << endl << "Vertices Invalidos (ERRO)-Algoritmo Floyd" << endl;
@@ -473,32 +483,39 @@ void Grafo::algFloyd(int a, int b) {
 */
 void Grafo::menorCaminhoDijkstra(int inicio, int destino)
 {
-    No* p = busca(inicio);
+    No* primeiroNo = busca(inicio);
     No* q = busca(destino);
+    No* todosOsNos = primeiro;
     ofstream f;
     f.open("../Saidas.txt", ofstream::ios_base::app);
-    if(p != nullptr && q != nullptr){
+    if(primeiroNo != nullptr && q != nullptr){
         int menor;
 
         int dist[tamanho], pre[tamanho];
         bool visit[tamanho];
+        int idDoNo[9999];
+        for (int j = 0; j < 9999; ++j) {
+            idDoNo[j] = 0;
+        }
         for(int i = 0; i < tamanho; i++){
             dist[i] = INT_MAX/2;
             pre[i] = -1;
             visit[i] = false;
+            idDoNo[todosOsNos->getId()] = i;
+            todosOsNos = todosOsNos->getProx();
         }
-        dist[p->getId()] = 0;
+        dist[idDoNo[primeiroNo->getId()]] = 0;
 
-        while(!verificaVisitados(visit, tamanho)){
-            if(!visit[p->getId()]){
-                visit[p->getId()] = true;
-                Aresta* a = p->getLista()->getPrimeiro();
+        while(!verificaVisitados(visit, tamanho) && primeiroNo != nullptr){
+            if(!visit[idDoNo[primeiroNo->getId()]]){
+                visit[idDoNo[primeiroNo->getId()]] = true;
+                Aresta* a = primeiroNo->getLista()->getPrimeiro();
                 if(a != nullptr){
                     while(a != nullptr){
                         if(a->getPeso() >= 0)
-                            if(dist[a->getIdAdjacente()] > dist[p->getId()] + a->getPeso()){
-                                dist[a->getIdAdjacente()] = dist[p->getId()] + a->getPeso();
-                                pre[a->getIdAdjacente()] = p->getId();
+                            if(dist[idDoNo[a->getIdAdjacente()]] > dist[idDoNo[primeiroNo->getId()]] + a->getPeso()){
+                                dist[idDoNo[a->getIdAdjacente()]] = dist[idDoNo[primeiroNo->getId()]] + a->getPeso();
+                                pre[idDoNo[a->getIdAdjacente()]] = idDoNo[primeiroNo->getId()];
                             }
                         a = a->getProx();
                     }
@@ -507,29 +524,40 @@ void Grafo::menorCaminhoDijkstra(int inicio, int destino)
                 for(i = 0; i < tamanho; i++){
                     if(!visit[i])
                         break;
-                    if(i == tamanho-1){
-                        cout << endl;
-                        cout << "A distância entre " << inicio << " e " << destino << " e: " << dist[destino] << endl;
-                        f << endl << "Menor Caminho(Dijkstra) entre " << inicio << " e " << destino << " : " << dist[destino] << endl;
-                    }
                 }
                 menor = i;
                 for(i = menor+1; i < tamanho; i++){
                     if(!visit[i] && dist[menor] > dist[i])
                         menor = i;
                 }
-                p = busca(menor);
+                for(int i = 0; i < 9999; i++){
+                    if(idDoNo[i] == menor){
+                        if(menor != 0){
+                            menor = i;
+                        }else {
+                            menor = primeiro->getId();
+                        }
+                    }
+                }
+                primeiroNo = busca(menor);
             }
         }
         if(dist[destino] == INT_MAX/2) {
             cout << endl << "Nao existe caminho entre os vertices." << endl;
             f << endl << "Nao existe caminho entre os vertices. " << endl;
+        } else {
+            cout << endl;
+            cout << "A distância entre " << inicio << " e " << destino << " e: " << dist[destino] << endl;
+            f << endl << "Menor Caminho(Dijkstra) entre " << inicio << " e " << destino << " : " << dist[destino] << endl;
         }
+
     }
+
     else{
         cout << "Vertice " << inicio << " ou "<< destino << " nao encontrados no grafo! (ERRO)" << endl;
         f << endl << "Vertice " << inicio << " ou "<< destino << " nao encontrados no grafo! (ERRO)-Algoritmo Dijkstra" << endl;
     }
+
 }
 
 /**

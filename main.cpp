@@ -25,7 +25,7 @@ int main() {
 
         //leitura.iniciaGrafo(&grafo, argv[1]);
         leitura.iniciaGrafo(&grafo, "../Arquivo/grafo.txt");
-        /*
+
         int flag = 99;
         while(flag != 0) {
         if(flag == 1) {
@@ -71,14 +71,6 @@ int main() {
         cin >> b;
         grafo.algFloyd(a, b);
         }
-        else if(flag == 5){
-        int a, b;
-        cout << "Digite o primeiro Vertice : ";
-        cin >> a;
-        cout << "Digite o segundo Vertice : ";
-        cin >> b;
-        grafo.menorCaminhoDijkstra(a, b);
-        }
 
 
         cout << endl;
@@ -87,10 +79,9 @@ int main() {
         cout << " 2 - Algoritmo Guloso Randomizado " << endl;
         cout << " 3 - Algoritmo Guloso Reativo " << endl;
         cout << " 4 - Algoritmo de Floyd" << endl;
-        cout << " 5 - Algoritmo de Dijkstra" << endl;
         cout << " 0 - Sair" << endl;
         cin >> flag;
-        }*/
+        }
 
         grafoMelhorSolucao = grafo.guloso(&grafo,0);
         f.open("../Saidas.txt", ofstream::ios_base::app);
