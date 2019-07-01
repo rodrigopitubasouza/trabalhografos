@@ -21,7 +21,7 @@ public:
     void insereNo(int id, int peso);
     void removeNo(int id);
     void insereArestaDir(int idPrimeiroNo, int idSegundoNo, int peso);
-    void insereAresta(int idPrimeiroNo, int idSegundoNo, int peso);
+    void insereAresta(int idPrimeiroNo, int idSegundoNo);
     void removArestaDir(int idPrimeiroNo, int idSegundoNo);
     void removAresta(int idPrimeiroNo, int idSegundoNo);
     void imprimir();

@@ -109,15 +109,15 @@ No *Grafo::busca(int i) {
 *Cria uma aresta nao direcionada entre os nos
 ********
  * *********************************************************/
-void Grafo::insereAresta(int idPrimeiroNo, int idSegundoNo, int peso) {
+void Grafo::insereAresta(int idPrimeiroNo, int idSegundoNo) {
     if (!existe(idPrimeiroNo))
-        insereNo(idPrimeiroNo, peso);
+        insereNo(idPrimeiroNo, ceil((idPrimeiroNo % 200) + 1));
     if (!existe(idSegundoNo))
-        insereNo(idSegundoNo, peso);
+        insereNo(idSegundoNo, ceil((idSegundoNo % 200) + 1));
     No *primeiroNo = busca(idPrimeiroNo);
     No *segundoNo = busca(idSegundoNo);
-    primeiroNo->insereAresta(idSegundoNo, peso);
-    segundoNo->insereAresta(idPrimeiroNo, peso);
+    primeiroNo->insereAresta(idSegundoNo, ceil((idPrimeiroNo % 200) + 1));
+    segundoNo->insereAresta(idPrimeiroNo, ceil((idPrimeiroNo % 200) + 1));
 }
 
 /**

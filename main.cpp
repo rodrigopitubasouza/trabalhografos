@@ -24,14 +24,14 @@ int main() {
     grafoComMelhorSolucao grafoMelhorSolucao;
 
     //leitura.iniciaGrafo(&grafo, argv[1]);
-    leitura.iniciaGrafo(&grafo, "../Arquivo/grafo.txt");
+    leitura.iniciaGrafo(&grafo, "../Arquivo/johnson32-2-4.mtx");
 
     int flag = 99;
     while (flag != 0) {
         if (flag == 1) {
             grafoMelhorSolucao = grafo.guloso(&grafo, 0);
             f.open("../Saidas.txt", ofstream::ios_base::app);
-            f << endl << "Solução algoritmo guloso : " << endl;
+            f << endl << "Solução algoritmo guloso tem " << grafoMelhorSolucao.tam << " nós"<< endl;
             for (int i = 0; i < grafoMelhorSolucao.tam; ++i) {
                 f << endl << grafoMelhorSolucao.vet[i] << " " << endl;
             }

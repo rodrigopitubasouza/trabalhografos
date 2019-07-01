@@ -7,6 +7,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <limits>
 
 using namespace std;
 
@@ -20,11 +21,13 @@ void Leitura::iniciaGrafo(Grafo *grafo, string caminhoDoArquivoEntrada) {
         cout << "Erro ao abrir o Arquivo." << endl;
     else{
         int quantidadeNos,idPrimeiroNo, idSegundoNo, peso;
-        leitor >> quantidadeNos;
+        leitor.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        leitor >> quantidadeNos >> peso >> peso;
         cout << "Numeros de Nos : " << quantidadeNos << endl;
+        int i = 1;
         while(!leitor.eof()){
-            leitor >> idPrimeiroNo >> idSegundoNo >> peso;
-            grafo->insereAresta(idPrimeiroNo, idSegundoNo, peso);
+            leitor >> idPrimeiroNo >> idSegundoNo;
+            grafo->insereAresta(idPrimeiroNo, idSegundoNo);
         }
     }
     leitor.close();
