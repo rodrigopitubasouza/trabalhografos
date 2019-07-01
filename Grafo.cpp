@@ -530,6 +530,13 @@ int Grafo::algDijkstra(int origem, int destino) {
 
 }
 
+
+/**
+* Algoritmo de Prim
+* Arvore geradora minima,algoritmo que tenta gerar uma árvore de tamanho minimo
+* seguindo um caminho que tenha as menores distancias entre todos os vertices que ja esta na solução
+* @return retorna o custo para andar em todos os nós da árvore
+*/
 int Grafo::Prim() {
     int dist[tamanho];
     int visitados[tamanho];
@@ -600,8 +607,7 @@ int Grafo::Prim() {
 }
 
 /**
- * Faz uma arvore geradora minima ou se o grafo for conexo ou
- * faz florestas se o grafo for desconexo
+ * Faz uma arvore geradora minima e printa os caminhos escolhidos
  */
 void Grafo::kruskal()
 {
@@ -633,11 +639,6 @@ void Grafo::kruskal()
                 a = p->getLista()->getPrimeiro();
         }
 
-
-
-//        lista->imprimeAresta();
-        p = primeiro;
-        a = lista->getPrimeiro();
         int cont = 0;
         cout << "Arvore geradora: " << endl;
         while(lista->getQuantidadeArestas() != 0 && cont != tamanho-1){
