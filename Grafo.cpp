@@ -10,6 +10,8 @@
 #include <fstream>
 #include <unistd.h>
 #include <random>
+#include <queue>
+#include <list>
 
 using namespace std;
 
@@ -114,8 +116,8 @@ void Grafo::insereAresta(int idPrimeiroNo, int idSegundoNo, int peso) {
         insereNo(idSegundoNo, peso);
     No *primeiroNo = busca(idPrimeiroNo);
     No *segundoNo = busca(idSegundoNo);
-    primeiroNo->insereAresta(idSegundoNo,peso);
-    segundoNo->insereAresta(idPrimeiroNo,peso);
+    primeiroNo->insereAresta(idSegundoNo, peso);
+    segundoNo->insereAresta(idPrimeiroNo, peso);
 }
 
 /**
@@ -124,7 +126,7 @@ void Grafo::insereAresta(int idPrimeiroNo, int idSegundoNo, int peso) {
 void Grafo::insereArestaDir(int idSaidaNo, int idEntradaNo, int peso) {
     No *primeiroNo = busca(idSaidaNo);
     if (primeiroNo != nullptr) {
-        primeiroNo->insereAresta(idEntradaNo,peso);
+        primeiroNo->insereAresta(idEntradaNo, peso);
     } else {
         cout << "Vertice nao encontrado. " << endl;
     }
@@ -217,7 +219,7 @@ grafoComMelhorSolucao Grafo::guloso(Grafo *grafo, double alfa) {
     int remocao;
     int contadorElementosSolucao;
     grafoComMelhorSolucao grafoDeRetorno;
-    int *vetorDaSolucao = new int [grafo->getTamanho()];
+    int *vetorDaSolucao = new int[grafo->getTamanho()];
     for (int i = 0; i < grafo->getTamanho(); ++i) {
         prox->setGrau(prox->getGrauOriginal());
         listaParaOrdernar[i] = prox;
@@ -227,12 +229,12 @@ grafoComMelhorSolucao Grafo::guloso(Grafo *grafo, double alfa) {
     contadorElementosSolucao = 0;
 
     while (tamanhoDaLista != 0) {
-        pos = ceil(alfa * (tamanhoDaLista-1));
+        pos = ceil(alfa * (tamanhoDaLista - 1));
         // Utilização de engine Mersenne twister para fazer o random.
         std::random_device rd{};
         std::mt19937 engine{rd()};
-        std::uniform_int_distribution<int> dist(1,pos);
-        remocao = pos != 0 ? dist(engine): 0;
+        std::uniform_int_distribution<int> dist(1, pos);
+        remocao = pos != 0 ? dist(engine) : 0;
 
         vetorDaSolucao[contadorElementosSolucao] = listaParaOrdernar[remocao]->getId();
         contadorElementosSolucao++;
@@ -292,7 +294,7 @@ int Grafo::atualizaLista(No **pNo, int remocao, int tamanhoLista) {
     for (int i = 0; i < tamanhoLista; i++) {
         while (listaDeArestasAux != nullptr) {
             if (pNo[i]->getId() == listaDeArestasAux->getIdAdjacente()) {
-                pNo[i]->setGrau(pNo[i]->getGrau()-1);
+                pNo[i]->setGrau(pNo[i]->getGrau() - 1);
             }
             listaDeArestasAux = listaDeArestasAux->getProx();
         }
@@ -305,8 +307,8 @@ int Grafo::atualizaLista(No **pNo, int remocao, int tamanhoLista) {
     tamanhoLista = tamanhoLista - 1;
     for (int i = 0; i < tamanhoLista; i++) {
         if (pNo[i]->getGrau() == 0) {
-            pNo[i] = pNo[tamanhoLista-1];
-            pNo[tamanhoLista-1] = nullptr;
+            pNo[i] = pNo[tamanhoLista - 1];
+            pNo[tamanhoLista - 1] = nullptr;
             tamanhoLista = tamanhoLista - 1;
             i--;
         }
@@ -325,7 +327,7 @@ int Grafo::atualizaLista(No **pNo, int remocao, int tamanhoLista) {
  * @param tamAlf Tamanho do vetor de alfas
  * @return Melhor Solucao Gerada
  */
-grafoComMelhorSolucao Grafo::gulosoReativo(Grafo *grafo,int k, int tamAlf) {
+grafoComMelhorSolucao Grafo::gulosoReativo(Grafo *grafo, int k, int tamAlf) {
     float *alfas = new float[tamAlf];
     float b = 0.05;
     int mat[2][tamAlf];//MATRIZ DE MEDIAS
@@ -334,12 +336,12 @@ grafoComMelhorSolucao Grafo::gulosoReativo(Grafo *grafo,int k, int tamAlf) {
     grafoComMelhorSolucao *menor = new grafoComMelhorSolucao[tamAlf];
 
     ////PRIMEIRA ITERAÇÃO = RANDOMIZADO
-    menor[0] = guloso(grafo,alfas[0]);
+    menor[0] = guloso(grafo, alfas[0]);
     mat[0][0] = menor[0].tam;
     mat[1][0] = 1;
     int melhor = menor[0].tam;
     for (int c = 1; c < tamAlf; c++) {
-        menor[c] = guloso(grafo,alfas[c]);//
+        menor[c] = guloso(grafo, alfas[c]);//
         mat[0][c] = menor[c].tam;
         mat[1][c] = 1;
         if (menor[c].tam < melhor) melhor = menor[c].tam; //MELHOR SOLUCAO DA 1º ITERAÇÃO
@@ -365,7 +367,7 @@ grafoComMelhorSolucao Grafo::gulosoReativo(Grafo *grafo,int k, int tamAlf) {
     while (i < k) {
         //cout << "i " << i << endl;
         in = RandomPseudoAleatorio(P, tamAlf);//  ESCOLHE UM ALFA ALEATORIO
-        s = gulosoReativo(grafo,alfas[in], 1);
+        s = gulosoReativo(grafo, alfas[in], 1);
         if (menor[in].tam > s.tam) menor[in] = s;//atualiza menor solucao no vetor
         mat[0][in] = mat[0][in] + s.tam;//incrementa o somatorio das solucoes
         mat[1][in]++;//incremente o numero de vezes que um alfa foi rodado
@@ -388,22 +390,21 @@ grafoComMelhorSolucao Grafo::gulosoReativo(Grafo *grafo,int k, int tamAlf) {
     }
     return better;
 }
+
 /**
     Calcula Qi na forma escolhida pelo grupo
 */
-float Grafo::Qi(float tamMelhorS, float somatorio, float qtd)
-{
-    return ( ( (float)tamMelhorS)/ ( ((float)somatorio)/( (float)qtd )  ) );
+float Grafo::Qi(float tamMelhorS, float somatorio, float qtd) {
+    return (((float) tamMelhorS) / (((float) somatorio) / ((float) qtd)));
 }
 
 /**
     função auxiliar para qualquer somatorio de
     todos os elementos do vetor Q
 */
-float Grafo::SomatorioQ(float *q, int tam)
-{
-    float somatorio =0;
-    for(int i =0 ; i < tam ; i++) somatorio = somatorio + q[i] ;
+float Grafo::SomatorioQ(float *q, int tam) {
+    float somatorio = 0;
+    for (int i = 0; i < tam; i++) somatorio = somatorio + q[i];
     return somatorio;
 }
 
@@ -411,18 +412,15 @@ float Grafo::SomatorioQ(float *q, int tam)
      o vetor de probabilidade foi montado de forma
      crescente de 0 a 1000 diminuindo a perda de precisão
 */
-int Grafo::RandomPseudoAleatorio(float * prob, int tamAlf)
-{
+int Grafo::RandomPseudoAleatorio(float *prob, int tamAlf) {
     //sleep(1);
     int x = rand() % 1000;
-    for (int i=0; i< tamAlf; i++)
-    {
-        if( x < prob[i])
-        {
+    for (int i = 0; i < tamAlf; i++) {
+        if (x < prob[i]) {
             return i;
         }
     }
-    return tamAlf-1;
+    return tamAlf - 1;
 }
 
 /**
@@ -435,38 +433,39 @@ void Grafo::algFloyd(int a, int b) {
     int posicaoInicio, posicaoFim;
     No *noEmI = primeiro;
     No *noEmJ = primeiro->getProx();
-    for(int i=0 ; i<tamanho ; i++){
-        for(int j=0 ; j<tamanho ; j++){
-            if(i == j){ mat[i][j] = 0; }
-            else{
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            if (i == j) { mat[i][j] = 0; }
+            else {
                 mat[i][j] = noEmI->getPesoDaAresta(noEmJ->getId());
                 noEmJ = noEmJ->getProx();
             }
         }
-        if(a == noEmI->getId()){
+        if (a == noEmI->getId()) {
             posicaoInicio = i;
         }
-        if(b == noEmI->getId()){
+        if (b == noEmI->getId()) {
             posicaoFim = i;
         }
         noEmI = noEmI->getProx();
         noEmJ = primeiro;
     }
-    for(int k=0 ; k<tamanho ; k++){
-        for(int i=0 ; i<tamanho ; i++){
-            for(int j=0 ; j<tamanho ; j++){
-                if(mat[i][j] > mat[i][k] + mat[k][j] && mat[i][k] + mat[k][j] > 0)
+    for (int k = 0; k < tamanho; k++) {
+        for (int i = 0; i < tamanho; i++) {
+            for (int j = 0; j < tamanho; j++) {
+                if (mat[i][j] > mat[i][k] + mat[k][j] && mat[i][k] + mat[k][j] > 0)
                     mat[i][j] = mat[i][k] + mat[k][j];
             }
         }
     }
     ofstream f;
     f.open("../Saidas.txt", ofstream::ios_base::app);
-    if((a >= 0 ) && (b >= 0)){
-        f << endl << "Menor Caminho(Floyd) entre " << a << " e " << b << " : " << mat[posicaoInicio][posicaoFim] << endl;
-        cout << endl << "Menor Caminho(Floyd) entre " << a << " e " << b << " : " << mat[posicaoInicio][posicaoFim] << endl;
-    }
-    else {
+    if ((a >= 0) && (b >= 0)) {
+        f << endl << "Menor Caminho(Floyd) entre " << a << " e " << b << " : " << mat[posicaoInicio][posicaoFim]
+          << endl;
+        cout << endl << "Menor Caminho(Floyd) entre " << a << " e " << b << " : " << mat[posicaoInicio][posicaoFim]
+             << endl;
+    } else {
         f << endl << "Vertices Invalidos (ERRO)-Algoritmo Floyd" << endl;
         cout << endl << "Vertices Invalidos (ERRO)-Algoritmo Floyd" << endl;
     }
@@ -477,102 +476,131 @@ void Grafo::algFloyd(int a, int b) {
 * Algoritmo de Dijkstra para encontrar menor caminho entre dois vertices
 * escreve no arquivo de Saida o dist[destino] com a distancia entre os dois nos passados por parâmetro
 * e no console
-* @param inicio id do no de inicio.
+* @param origem id do no de origem.
 * @param destino id do no de destino
-* @return função sem retorno
+* @return retorna o valor da distancia entre os nos de origem e destino
 */
-void Grafo::menorCaminhoDijkstra(int inicio, int destino)
-{
-    No* primeiroNo = busca(inicio);
-    No* q = busca(destino);
-    No* todosOsNos = primeiro;
-    ofstream f;
-    f.open("../Saidas.txt", ofstream::ios_base::app);
-    if(primeiroNo != nullptr && q != nullptr){
-        int menor;
+int Grafo::algDijkstra(int origem, int destino) {
+    int dist[tamanho];
+    int visitados[tamanho];
+    int idDoNo[9999];
 
-        int dist[tamanho], pre[tamanho];
-        bool visit[tamanho];
-        int idDoNo[9999];
-        for (int j = 0; j < 9999; ++j) {
-            idDoNo[j] = 0;
-        }
-        for(int i = 0; i < tamanho; i++){
-            dist[i] = INT_MAX/2;
-            pre[i] = -1;
-            visit[i] = false;
-            idDoNo[todosOsNos->getId()] = i;
-            todosOsNos = todosOsNos->getProx();
-        }
-        dist[idDoNo[primeiroNo->getId()]] = 0;
+    No *primeiroNo;
+    No *todosOsNos = primeiro;
 
-        while(!verificaVisitados(visit, tamanho) && primeiroNo != nullptr){
-            if(!visit[idDoNo[primeiroNo->getId()]]){
-                visit[idDoNo[primeiroNo->getId()]] = true;
-                Aresta* a = primeiroNo->getLista()->getPrimeiro();
-                if(a != nullptr){
-                    while(a != nullptr){
-                        if(a->getPeso() >= 0)
-                            if(dist[idDoNo[a->getIdAdjacente()]] > dist[idDoNo[primeiroNo->getId()]] + a->getPeso()){
-                                dist[idDoNo[a->getIdAdjacente()]] = dist[idDoNo[primeiroNo->getId()]] + a->getPeso();
-                                pre[idDoNo[a->getIdAdjacente()]] = idDoNo[primeiroNo->getId()];
-                            }
-                        a = a->getProx();
-                    }
+    for (int j = 0; j < 9999; ++j) {
+        idDoNo[j] = 0;
+    }
+    for (int i = 0; i < tamanho; i++) {
+        dist[i] = INT_MAX / 2;
+        visitados[i] = false;
+        idDoNo[todosOsNos->getId()] = i;
+        todosOsNos = todosOsNos->getProx();
+    }
+
+    priority_queue<pair<int, int>,
+            vector<pair<int, int> >, greater<pair<int, int> > > pq;
+
+
+    dist[idDoNo[origem]] = 0;
+
+    pq.push(make_pair(dist[origem], origem));
+
+    while (!pq.empty()) {
+        pair<int, int> p = pq.top(); // extrai o pair do topo
+        int u = p.second; // obtém o vértice do pair
+        pq.pop(); // remove da fila
+
+        // verifica se o vértice não foi expandido
+        if (visitados[idDoNo[u]] == false) {
+            // marca como visitado
+            visitados[idDoNo[u]] = true;
+            primeiroNo = busca(u);
+            Aresta *a = primeiroNo->getLista()->getPrimeiro();
+            while (a != nullptr) {
+                if (dist[idDoNo[a->getIdAdjacente()]] > dist[idDoNo[primeiroNo->getId()]] + a->getPeso()) {
+                    dist[idDoNo[a->getIdAdjacente()]] = dist[idDoNo[primeiroNo->getId()]] + a->getPeso();
+                    pq.push(make_pair(dist[idDoNo[a->getIdAdjacente()]], a->getIdAdjacente()));
                 }
-                int i;
-                for(i = 0; i < tamanho; i++){
-                    if(!visit[i])
-                        break;
-                }
-                menor = i;
-                for(i = menor+1; i < tamanho; i++){
-                    if(!visit[i] && dist[menor] > dist[i])
-                        menor = i;
-                }
-                for(int i = 0; i < 9999; i++){
-                    if(idDoNo[i] == menor){
-                        if(menor != 0){
-                            menor = i;
-                        }else {
-                            menor = primeiro->getId();
-                        }
-                    }
-                }
-                primeiroNo = busca(menor);
+                a = a->getProx();
             }
         }
-        if(dist[destino] == INT_MAX/2) {
-            cout << endl << "Nao existe caminho entre os vertices." << endl;
-            f << endl << "Nao existe caminho entre os vertices. " << endl;
-        } else {
-            cout << endl;
-            cout << "A distância entre " << inicio << " e " << destino << " e: " << dist[destino] << endl;
-            f << endl << "Menor Caminho(Dijkstra) entre " << inicio << " e " << destino << " : " << dist[destino] << endl;
+    }
+    return dist[idDoNo[destino]];
+
+}
+
+int Grafo::Prim() {
+    int dist[tamanho];
+    int visitados[tamanho];
+    int idDoNo[9999];
+
+    No *primeiroNo;
+    No *todosOsNos = primeiro;
+
+    for (int j = 0; j < 9999; ++j) {
+        idDoNo[j] = 0;
+    }
+    dist[0] = 0;
+    for (int i = 1; i < tamanho; i++) {
+        dist[i] = INT_MAX / 2;
+        visitados[i] = false;
+        idDoNo[todosOsNos->getId()] = i;
+        todosOsNos = todosOsNos->getProx();
+    }
+
+    priority_queue<pair<int, int>,
+            vector<pair<int, int> >, greater<pair<int, int> > > pq;
+
+
+    pq.push(make_pair(dist[0], primeiro->getId()));
+
+    while (true) {
+        int davez = -1;
+
+        while (!pq.empty()) {
+            int atual = pq.top().second;
+            pq.pop();
+
+            if (!visitados[idDoNo[atual]]) {
+                davez = atual;
+                break;
+            }
+        }
+
+        if (davez == -1) break;
+
+        visitados[idDoNo[davez]] = true;
+        primeiroNo = busca(davez);
+        Aresta *a = primeiroNo->getLista()->getPrimeiro();
+        while (a != nullptr) {
+
+            // A nova possível distância é dist.
+            // Comparamos isso com distancia[atual].
+            // Porém, é importante checar se o vértice atual não foi processado ainda
+            if (dist[idDoNo[a->getIdAdjacente()]] > a->getPeso() &&
+                !visitados[a->getIdAdjacente()]) {// vemos que vale a pena usar o vértice davez
+                dist[idDoNo[a->getIdAdjacente()]] = a->getPeso(); // atualizamos a distância
+                pq.push(make_pair(dist[idDoNo[a->getIdAdjacente()]], a->getIdAdjacente()));
+            }
+            a = a->getProx();
+        }
+    }
+
+    int custo_arvore = 0;
+    for(int i = 0;i < tamanho;i++) {
+        if(dist[i] != INT_MAX / 2){
+            custo_arvore += dist[i];
         }
 
     }
 
-    else{
-        cout << "Vertice " << inicio << " ou "<< destino << " nao encontrados no grafo! (ERRO)" << endl;
-        f << endl << "Vertice " << inicio << " ou "<< destino << " nao encontrados no grafo! (ERRO)-Algoritmo Dijkstra" << endl;
-    }
+    return custo_arvore;
 
 }
 
-/**
-* Função que verifica se o vetor é false em todas as posições
-* @param vet bool com os indices dos nos do grafo
-* @param tamanho int com o tamanho do vetor
-* @return false se todas as posicoes sao false ou true se encontrado ao menos um true
-*/
-bool Grafo::verificaVisitados(bool vet[], int tamanho) // funcao que verifica se todos os indicies do vetor foram visitados
-{
-    for(int i = 0; i < tamanho; i++)
-        if(!vet[i])
-            return false;
-    return true;
-}
+
+
 
 
 

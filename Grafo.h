@@ -31,6 +31,8 @@ public:
     grafoComMelhorSolucao gulosoReativo(Grafo *grafo,int k, int tamAlf);
     void menorCaminhoDijkstra(int inicio, int destino);
     void algFloyd(int a, int b);
+    int algDijkstra(int origem, int destino);
+    int Prim();
 
 
 
@@ -47,7 +49,6 @@ private:
     float Qi(float tamMelhorS, float somatorio, float qtd);
     float SomatorioQ(float *q, int tam);
     int RandomPseudoAleatorio(float * prob, int tamAlf);
-    bool verificaVisitados(bool vet[], int tamanho);
 
 };
 
