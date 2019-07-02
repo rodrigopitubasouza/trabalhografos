@@ -236,7 +236,7 @@ grafoComMelhorSolucao Grafo::guloso(Grafo *grafo, double alfa) {
         std::uniform_int_distribution<int> dist(1, pos);
         remocao = pos != 0 ? dist(engine) : 0;
 
-        vetorDaSolucao[contadorElementosSolucao] = listaParaOrdernar[remocao]->getId();
+        vetorDaSolucao[contadorElementosSolucao] = listaParaOrdernar[remocao]->getPeso();
         contadorElementosSolucao++;
         tamanhoDaLista = atualizaLista(listaParaOrdernar, remocao, tamanhoDaLista);
         ordenaVetor(listaParaOrdernar, tamanhoDaLista);

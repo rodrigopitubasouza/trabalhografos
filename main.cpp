@@ -24,6 +24,7 @@ int main(int argc, char *argv[ ]) {
     double alfa;
     int espacamento, iteracoes;
     grafoComMelhorSolucao grafoMelhorSolucao;
+    int pesoTotal;
 
     leitura.iniciaGrafo(&grafo, argv[1]);
 
@@ -33,9 +34,11 @@ int main(int argc, char *argv[ ]) {
             grafoMelhorSolucao = grafo.guloso(&grafo, 0);
             f.open(argv[2], ofstream::ios_base::app);
             f << endl << "Solução algoritmo guloso tem " << grafoMelhorSolucao.tam << " nós"<< endl;
+            pesoTotal = 0;
             for (int i = 0; i < grafoMelhorSolucao.tam; ++i) {
-                f << endl << grafoMelhorSolucao.vet[i] << " " << endl;
+               pesoTotal += grafoMelhorSolucao.vet[i];
             }
+            f << endl << "O peso total é : " << pesoTotal << endl;
             f.close();
         } else if (flag == 2) {
             cout << "Digite o Alfa (Entre 0 e 1) : ";
@@ -46,21 +49,25 @@ int main(int argc, char *argv[ ]) {
                 grafoComMelhorSolucao aux = grafo.guloso(&grafo, alfa);
                 f.open(argv[2], ofstream::ios_base::app);
                 f << endl << "Solução algoritmo guloso randomizado com alfa " << alfa << " e a solução tem "
-                  << grafoMelhorSolucao.tam << " nós:" << endl;
-                for (int i = 0; i < grafoMelhorSolucao.tam; ++i) {
-                    f << endl << grafoMelhorSolucao.vet[i] << " " << endl;
+                  << aux.tam << " nós:" << endl;
+                pesoTotal = 0;
+                for (int i = 0; i < aux.tam; ++i) {
+                    pesoTotal += aux.vet[i];
                 }
+                f << endl << "O peso total é : " << pesoTotal << endl;
                 f.close();
             }
         } else if (flag == 3) {
             espacamento = 10;
-            iteracoes = 50;
-            grafoComMelhorSolucao aux = grafo.gulosoReativo(&grafo, iteracoes, espacamento);
+            iteracoes = 10;
+            grafoComMelhorSolucao aux2 = grafo.gulosoReativo(&grafo, iteracoes, espacamento);
             f.open(argv[2], ofstream::ios_base::app);
-            f << endl << "Solução algoritmo guloso Reativo com " << grafoMelhorSolucao.tam << " nós:" << endl;
-            for (int i = 0; i < grafoMelhorSolucao.tam; ++i) {
-                f << endl << grafoMelhorSolucao.vet[i] << " " << endl;
+            f << endl << "Solução algoritmo guloso Reativo com " << aux2.tam << " nós:" << endl;
+            pesoTotal = 0;
+            for (int i = 0; i < aux2.tam; ++i) {
+                pesoTotal += aux2.vet[i];
             }
+            f << endl << "O peso total é : " << pesoTotal << endl;
             f.close();
 
         } else if (flag == 4) {
