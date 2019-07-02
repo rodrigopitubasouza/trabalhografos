@@ -428,7 +428,7 @@ int Grafo::RandomPseudoAleatorio(float *prob, int tamAlf) {
  * Grafo.
  * @return Funcao sem retorno
  */
-void Grafo::algFloyd(int a, int b) {
+void Grafo::algFloyd(int a, int b,string saida) {
     int mat[tamanho][tamanho];
     int posicaoInicio, posicaoFim;
     No *noEmI = primeiro;
@@ -459,7 +459,7 @@ void Grafo::algFloyd(int a, int b) {
         }
     }
     ofstream f;
-    f.open("../Saidas.txt", ofstream::ios_base::app);
+    f.open(saida, ofstream::ios_base::app);
     if ((a >= 0) && (b >= 0)) {
         f << endl << "Menor Caminho(Floyd) entre " << a << " e " << b << " : " << mat[posicaoInicio][posicaoFim]
           << endl;

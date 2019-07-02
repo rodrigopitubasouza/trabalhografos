@@ -30,7 +30,7 @@ public:
     grafoComMelhorSolucao guloso(Grafo *grafo, double alfa);
     grafoComMelhorSolucao gulosoReativo(Grafo *grafo,int k, int tamAlf);
     void menorCaminhoDijkstra(int inicio, int destino);
-    void algFloyd(int a, int b);
+    void algFloyd(int a, int b, string saida);
     int algDijkstra(int origem, int destino);
     int Prim();
     void kruskal();
